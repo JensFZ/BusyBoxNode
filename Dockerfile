@@ -8,7 +8,7 @@ COPY package*.json ./
 RUN npm install
 
 # Programm kopieren
-copy . .
+COPY . .
 
 #Port freigeben
 EXPOSE 8080
