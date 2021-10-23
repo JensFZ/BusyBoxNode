@@ -13,12 +13,29 @@ app.get('/', (req, res) => {
     res.send('Moin!');
 });
 
-app.get('/setBusy', (req, res) => {
-    res.send('Busy!');
+app.get('/active/:id', (req, res) => {
+    // Schaltet einen Controler an
+    res.send(`active ${req.params.id}`);
 });
 
-app.get('/releaseBusy', (req, res) => {
-    res.send('Busy!');
+app.get('/inactive/:id', (req, res) => {
+    // Schaltet einen Controler aus
+    res.send(`inactive ${req.params.id}`);
+});
+
+app.get('/setBusy/:id', (req, res) => {
+    //set busy
+    res.send(`${req.params.id} Busy!`);
+});
+
+app.get('/releaseBusy/:id', (req, res) => {
+    // release busy
+    res.send(`${req.params.id} release!`);
+});
+
+app.get('/Status', (req, res) => {
+    // get Status
+    res.send('Status!');
 });
 
 app.listen(PORT, HOST);
