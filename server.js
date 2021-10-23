@@ -13,5 +13,9 @@ app.get('/', (req, res) => {
     res.send('Moin!');
 });
 
+app.get('/setBusy', (req, res) => {
+    res.send('Busy!');
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
