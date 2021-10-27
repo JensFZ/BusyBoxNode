@@ -9,11 +9,6 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
-app.get('/', (req, res) => {
-    var rueckagbe = 'Visit <a href="https://app.swaggerhub.com/apis/JensFZ/BusyBoxApi/1.0.0">https://app.swaggerhub.com/apis/JensFZ/BusyBoxApi/1.0.0</a>';
-    res.send(rueckagbe);
-});
-
 var active = [];
 var busy = [];
 var busyTime = [];
@@ -72,6 +67,12 @@ app.get('/getBusy/:id', (req, res) => {
 app.get('/Status', (req, res) => {
     // get Status
     res.send('Status!');
+});
+
+// IMMER ALS LETZTE ROUTE!!!!!!
+app.get('*', (req, res) => {
+    var rueckagbe = 'Visit <a href="https://app.swaggerhub.com/apis/JensFZ/BusyBoxApi/1.0.0">https://app.swaggerhub.com/apis/JensFZ/BusyBoxApi/1.0.0</a>';
+    res.send(rueckagbe);
 });
 
 app.listen(PORT, HOST);
