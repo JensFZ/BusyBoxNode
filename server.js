@@ -63,7 +63,7 @@ app.get('/releaseBusy/:id', (req, res) => {
 app.get('/getBusy/:id', (req, res) => {
     var id = req.params.id;
     if(busy[id] == 1) {
-        res.send("{\"amTelefon\": true, \"seit\": " + busyTime[id] + "}");
+        res.send("{\"amTelefon\": true, \"seit\": " + parseInt((Date.now() - busyTime[id]) / 1000) + "}");
     } else {
         res.send("{\"amTelefon\": false}");
     }    
