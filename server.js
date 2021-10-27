@@ -10,7 +10,8 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-    res.send('Moin!');
+    var rueckagbe = 'Visit <a href="https://app.swaggerhub.com/apis/JensFZ/BusyBoxApi/1.0.0">https://app.swaggerhub.com/apis/JensFZ/BusyBoxApi/1.0.0</a>';
+    res.send(rueckagbe);
 });
 
 var active = [];
@@ -21,16 +22,15 @@ app.get('/active/:id', (req, res) => {
     // Schaltet einen Controler an
     var id = req.params.id;
     active[id] = 1;
-    console.log('Active: %d', id)
+    console.log('Active: %d', id);
     res.send("");
-    //res.send(`active ${req.params.id}`);
 });
 
 app.get('/inactive/:id', (req, res) => {
     // Schaltet einen Controler aus
     var id = req.params.id;
     active[id] = 0;
-    console.log('inactive: %d', id)
+    console.log('inactive: %d', id);
     res.send("");
 });
 
@@ -65,7 +65,7 @@ app.get('/getBusy/:id', (req, res) => {
     if(busy[id] == 1) {
         res.send("{\"amTelefon\": true, \"seit\": " + parseInt((Date.now() - busyTime[id]) / 1000) + "}");
     } else {
-        res.send("{\"amTelefon\": false}");
+        res.send("{\"amTelefon\": false, \"seit\": 0}");
     }    
 });
 
